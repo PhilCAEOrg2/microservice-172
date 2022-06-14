@@ -1,0 +1,17 @@
+/export
+/tmp
+/node-storage
+/startup
+/log
+/lib
+etc/ivy/ivy.jar
+/service
+/etc/startup
+restMapping.xml
+/output
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

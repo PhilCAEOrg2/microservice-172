@@ -130,7 +130,9 @@ public class ResTest {
     try {
       c.setLogin(AnonymousAgentImpl.IDENTIFIER, "");
       ClientResponse result = c.sendRequest("GET", "/test", """
-""", "text/plain", "*/*", new HashMap<>(), new Object[0]);
+{
+  "name": "Alice"
+}""", "application/json", "*/*", new HashMap<>(), new Object[0]);
       System.out.println("Result of request with id: 116877: " + result.getResponse().trim());
     
       Assert.assertEquals("[237185]", 200, result.getHttpCode());

@@ -87,7 +87,7 @@ public class Res extends RESTService {
    * gettest
    *
    * 
-   *
+   * @param body  a JSONObject
    * 
    * @return Response 
    * 
@@ -95,12 +95,14 @@ public class Res extends RESTService {
   @GET
   @Path("/test")
   @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
+  @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "res2"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
   })
   @ApiOperation(value = "gettest", notes = " ")
-  public Response gettest() {
+  public Response gettest(String body) {
+    JSONObject body_JSON = (JSONObject) JSONValue.parse(body);
 
 
 

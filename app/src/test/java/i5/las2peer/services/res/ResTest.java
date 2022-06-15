@@ -132,13 +132,8 @@ public class ResTest {
       ClientResponse result = c.sendRequest("GET", "/test", """
 """, "text/plain", "*/*", new HashMap<>(), new Object[0]);
       System.out.println("Result of request with id: 116877: " + result.getResponse().trim());
-      Object response = JSONValue.parse(result.getResponse().trim());
-      // Response body has field "id" has type Number
-      assertThat("[583]", response, both(isA(JSONObject.class)).and(asJSONObject(hasField("id", isA(Number.class)))));
-      
-      // Response body has field "name" has type JSON Object
-      assertThat("[711283]", response, both(isA(JSONObject.class)).and(asJSONObject(hasField("name", isA(JSONObject.class)))));
-      
+    
+      Assert.assertEquals("[237185]", 200, result.getHttpCode());
 
     } catch (Exception e) {
       e.printStackTrace();
